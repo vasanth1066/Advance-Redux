@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialCartState = { isCartVisisble: false };
+const initialCartState = { isCartVisisble: false, notification: null };
 
 const CartSlice = createSlice({
   name: "cart",
@@ -8,6 +8,13 @@ const CartSlice = createSlice({
   reducers: {
     toogle(state) {
       state.isCartVisisble = !state.isCartVisisble;
+    },
+    showNotification(state, action) {
+      state.notification = {
+        status: action.payload.status,
+        title: action.payload.title,
+        message: action.payload.message,
+      };
     },
   },
 });
